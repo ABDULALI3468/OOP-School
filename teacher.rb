@@ -3,8 +3,9 @@ require_relative 'person'
 # Class Teacher inherits from Person
 class Teacher < Person
   attr_reader :specialization
-  def initialize(specialization , age, name, parent_permission)
-    super(age, name, parent_permission:parent_permission)
+
+  def initialize(specialization, age, name, parent_permission)
+    super(age, name, parent_permission: parent_permission)
 
     @specialization = specialization
   end
@@ -14,4 +15,4 @@ class Teacher < Person
   end
 end
 
-puts Teacher.new('Maths', 30, 'ABC', parent_permission:false).specialization
+puts Teacher.new('Maths', 30, 'ABC', parent_permission: false).specialization
