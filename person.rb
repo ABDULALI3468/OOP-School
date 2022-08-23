@@ -12,12 +12,11 @@ class Person
   def of_age?
     @age >= 18
   end
-  private :of_age?
 
   def can_use_services?
-    is_of_age? || @parent_permission
+    of_age? || @parent_permission
   end
-  public :can_use_services?
+  private :of_age?
 end
 
 puts Person.new(18, 'ABDUL ALI', parent_permission: false).parent_permission
