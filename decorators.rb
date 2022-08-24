@@ -7,7 +7,7 @@ end
 class BaseDecorator < Nameable
   def initialize(nameable)
     super()
-    
+
     @nameable = nameable
   end
 
@@ -29,4 +29,3 @@ class TrimmerDecorator < BaseDecorator
     corrected_name
   end
 end
-
