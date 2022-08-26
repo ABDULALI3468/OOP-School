@@ -2,6 +2,8 @@ require_relative 'person'
 
 # Class Teacher inherits from Person
 class Teacher < Person
+  attr_accessor :parent_permission
+
   def initialize(specialization, age, name, parent_permission)
     super(age, name, parent_permission: parent_permission)
 
@@ -13,4 +15,4 @@ class Teacher < Person
   end
 end
 
-puts Teacher.new('Maths', 30, 'ABC', parent_permission: false).specialization
+# puts Teacher.new('Maths', 30, 'ABC', parent_permission: false).specialization
