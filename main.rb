@@ -20,7 +20,7 @@ M E N U
 5 - Create a rental
 6 - List all rentals for a given person id
 7 - Exit
-Please choose an option by entering a number: "
+Please choose an option by entering a number between 1 and 7: "
   end
 
   def menu
@@ -39,7 +39,8 @@ Please choose an option by entering a number: "
         app.create_rental
       when 6
         app.list_rentals
-        break
+      else
+        exit
       end
     end
   end
