@@ -34,11 +34,12 @@ GEM
     unicode-display_width (2.2.0)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x64-unknown
+  x86_64-linux
 
 DEPENDENCIES
   rubocop (>= 1.0, < 2.0)
-  ruby-lsp
+  ruby-lsp (~> 0.3.0)
 
 BUNDLED WITH
    2.3.7
