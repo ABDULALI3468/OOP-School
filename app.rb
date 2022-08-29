@@ -126,16 +126,6 @@ class App
     puts 'Rental created sucessfully'
   end
 
-  def person_by_id
-    loop
-    print 'ID of person: '
-    id = gets.chomp.to_i
-
-    @people.each_with_index do |person, index|
-      return index if person.id == id
-    end
-  end
-
   def list_rentals
     puts "\n"
     if @rentals.empty?
@@ -145,8 +135,9 @@ class App
       @persons.each do |person|
         puts "ID : #{person.id} => #{person.name}"
       end
-      puts "\n"
-      print "Enter person\'s ID :"
+      puts "
+
+      Enter person\'s ID :"
       person = gets.chomp
       puts "\n"
       @rentals.each do |rental|
