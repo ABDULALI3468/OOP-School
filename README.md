@@ -42,6 +42,12 @@ you can run one of the followin command in your terminal
 > * This is My **Linkedin**: [![Linkedin Badge](https://img.shields.io/badge/-ABDUL%20ALI-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/abdul-ali-5400bb216/)](https://www.linkedin.com/in/abdul-ali-5400bb216/)&nbsp;
 > * This is My **Twitter**: [![Twitter Badge](https://img.shields.io/badge/-@mrabdul_ali_-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/mrabdul_ali)](https://twitter.com/mrabdul_ali)&nbsp;
 
+👤 **Sanja Mandic**
+
+I am an aspiring web developer from Serbia.
+- GitHub: [@sanjaGit](https://github.com/Sanja969)
+- Twitter: [@sanjaTwit](https://twitter.com/SanjaMandic42)
+- LinkedIn: [@sanjaIn](https://linkedin.com/in/sanja-mandic-823995a2/)
 
 ## 🤝 Contributing
 
