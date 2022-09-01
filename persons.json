@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Student",
+    "name": "1",
+    "age": "1",
+    "ID": 666
+  },
+  {
+    "type": "Teacher",
+    "name": "2",
+    "age": "2",
+    "ID": 188
+  },
+  {
+    "type": "Student",
+    "name": "1",
+    "age": "1",
+    "ID": 631
+  },
+  {
+    "type": "Teacher",
+    "name": "ALI",
+    "age": "18",
+    "ID": 217
+  },
+  {
+    "type": "Student",
+    "name": "aiza",
+    "age": "11",
+    "ID": 190
+  }
+]
