@@ -5,48 +5,46 @@ require_relative 'book'
 require_relative 'input_module'
 require_relative 'classroom'
 require_relative 'rental'
+require_relative 'store_data'
 
 class App
+  include DataStore
+
   def initialize
-    @persons = []
-    @books = []
-    @rentals = []
+    @persons = load_person
+    @books = load_book
+    @rentals = load_rentals
     @classroom = Classroom.new(1)
   end
 
   include InputModule
 
   def add_person
-    text = 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    type = numeric_input(text, (1..2))
-
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    type = gets.chomp
     print 'Age: '
     age = gets.chomp
     print 'Name: '
     name = gets.chomp
 
-    if type == 1
-      letter = letter_input('Has parent permission? [Y/N] ', %w[Y N])
-      permission = letter == 'Y'
-      new_person = Student.new(age, name, permission, @classroom)
+    case type
+    when '1'
+      write_people('Student', name, age, @persons)
+    when '2'
+      write_people('Teacher', name, age, @persons)
     else
-      print 'Specialization: '
-      specialization = gets.chomp
-      new_person = Teacher.new(specialization, age, name, @parent_permission)
+      puts 'Choose a number from 1 and 2'
     end
 
-    @persons << new_person
-
+    @persons = load_person
     puts 'Person created successfully'
-    print @persons
   end
 
   def print_person
-    return 'No people to list' if @persons.empty?
-
+    puts 'The list is empty' if @persons.empty?
     result = ''
     @persons.each_with_index do |person, index|
-      result += "#{index}) [#{person.class.name}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}\n"
+      result += "#{index}) [#{person['type']}] ID: #{person['ID']}, Name: #{person['name']}, Age: #{person['age']}\n"
     end
     print result
   end
@@ -56,16 +54,14 @@ class App
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    book = Book.new(title, author)
-    @books << book
+    write_books(title, author, @books)
+    @books = load_book
     print 'Book created successfully'
   end
 
   def list_books
-    i = 0
-    while i < @books.length
-      puts "#{i}) Title: #{@books[i].title}, Author: #{@books[i].author}"
-      i += 1
+    @books.each_with_index do |book, index|
+      puts("(#{index})- Title: #{book['title']} , Author: #{book['author']}")
     end
   end
 
@@ -83,7 +79,9 @@ class App
     person = @persons[person_index]
     book = @books[book_index]
 
-    @rentals << Rental.new(date, book, person)
+    # rental = Rental.new(date, book, person)
+    # @rentals << {book: rental.book, person: rental.person, date: rental.date}
+    write_rentals(date, book, person, @rentals)
     puts 'Rental created sucessfully'
   end
 
@@ -103,16 +101,14 @@ class App
       puts 'No rent is registered in the library'
     else
       puts 'Select a person form the following list by ID'
-      @persons.each do |person|
-        puts "ID : #{person.id} => #{person.name}"
-      end
+      @persons.each { |person| puts "ID : #{person['ID']} => #{person['name']}" }
       puts "\n"
       print "Enter person\'s ID :"
       person = gets.chomp
       puts "\n"
       @rentals.each do |rental|
-        if rental.person.id.to_i == person.to_i
-          puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by : #{rental.book.author}"
+        if rental['person']['ID'].to_i == person.to_i
+          puts "Date : #{rental['date']}, Book \"#{rental['book']['title']}\" by : #{rental['book']['author']}"
         end
       end
     end

@@ -19,5 +19,3 @@ class Student < Person
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
-
-puts Student.new(30, 'ABC', false, 'C1').name

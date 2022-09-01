@@ -14,5 +14,3 @@ class Teacher < Person
     true
   end
 end
-
-# puts Teacher.new('Maths', 30, 'ABC', parent_permission: false).specialization
